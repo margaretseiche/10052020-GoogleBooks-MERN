@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const db = require("../models");
 
-// This file empties the books collection and inserts the books below
+// This file empties the Books collection and inserts the books below
 
 mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/reactgooglebooks"
@@ -47,7 +47,8 @@ const bookSeed = [
   }
 ];
 
-db.Book.remove({})
+// db.Book.remove({})
+db.Book.deleteMany({})
   .then(() => db.Book.collection.insertMany(bookSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");

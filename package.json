@@ -1,7 +1,7 @@
 {
   "name": "mern",
   "version": "1.0.0",
-  "description": "",
+  "description": "MERN app for Google Book Search",
   "main": "server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
@@ -13,6 +13,9 @@
     "heroku-postbuild": "npm run build",
     "seed": "node scripts/seedDB.js"
   },
+  "repository": {
+    "url": "https://github.com/margaretseiche/10052020-GoogleBooks-MERN"
+  },
   "author": "",
   "license": "ISC",
   "devDependencies": {
@@ -20,6 +23,7 @@
     "nodemon": "^1.18.7"
   },
   "dependencies": {
+    "axios": "^0.20.0",
     "express": "^4.16.3",
     "if-env": "^1.0.4",
     "mongoose": "^5.8.11"
