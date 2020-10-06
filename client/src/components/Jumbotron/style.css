@@ -1,4 +1,9 @@
 .jumbotron {
   min-height: 300px;
   padding-top: 100px;
+  background-color: #e6f5ff;
+}
+
+.jumbotron a {
+  color: #008ae6
 }

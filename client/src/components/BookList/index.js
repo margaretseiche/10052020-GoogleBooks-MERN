@@ -2,6 +2,10 @@ import React from "react";
 import Thumbnail from "../Thumbnail";
 import { Container, Row, Col } from "../Grid";
 
+const style = {
+  color: "#008ae6"
+}
+
 // Exporting both RecipeList and RecipeListItem from this file
 
 // RecipeList renders a bootstrap list item
@@ -30,8 +34,10 @@ export function BookListItem({
           </Col>
           <Col size="xs-8 sm-9">
             <h3>{title}</h3>
+            <p>{authors}</p>
+            <p>{description}</p>
 
-            <a rel="noreferrer noopener" target="_blank" href={href}>
+            <a rel="noreferrer noopener" target="_blank" href={href} style={style}>
               Go to that book!
             </a>
           </Col>

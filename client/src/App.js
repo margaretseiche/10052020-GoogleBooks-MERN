@@ -1,58 +1,57 @@
-import React, { useState } from "react";
-import Jumbotron from "./components/Jumbotron";
-import Nav from "./components/Nav";
-import Input from "./components/Input";
-import Button from "./components/Button";
-import API from "./utils/API";
-// import { RecipeList, RecipeListItem } from "./components/RecipeList";
-import { BookList, BookListItem } from "./components/BookList";
-import { Container, Row, Col } from "./components/Grid";
+import React from "react";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+// import Jumbotron from "./components/Jumbotron";
+// import Nav from "./components/Nav";
+// import Input from "./components/Input";
+// import Button from "./components/Button";
+// import API from "./utils/API";
+// import { BookList, BookListItem } from "./components/BookList";
+// import { Container, Row, Col } from "./components/Grid";
+
+import Home from "./pages/Home/index";
+import Saved from "./pages/Saved/index";
+import NoMatchPage from "./pages/NoMatch";
 
 function App() {
 
-  // const [recipes, setRecipes] = useState([]);
-  // const [recipeSearch, setRecipeSearch] = useState("");
+  // const [books, setBooks] = useState([]);
+  // const [bookSearch, setBookSearch] = useState("");
 
-  const [books, setBooks] = useState([]);
-  const [bookSearch, setBookSearch] = useState("");
+  // // const componentDidMount() {
+  // //   API.getBooks(bookSearch)
+  // //   .then(res => setBooks(res.data))
+  // //   .catch(err => console.log(err));
+  // // }
 
-  const handleInputChange = event => {
-    // Destructure the name and value properties off of event.target
-    // Update the appropriate state
-    const { value } = event.target;
-    // setRecipeSearch(value);
-    setBookSearch(value);
-  };
+  // // componentDidMount();
 
-  const handleFormSubmit = event => {
-    // When the form is submitted, prevent its default behavior, get recipes update the recipes state
-    event.preventDefault();
+  // const handleInputChange = event => {
+  //   // Destructure the name and value properties off of event.target
+  //   // Update the appropriate state
+  //   const { value } = event.target;
+  //   setBookSearch(value);
+  // };
 
-    // API.getRecipes(recipeSearch)
-    // .then(res => setRecipes(res.data))
+  // const handleFormSubmit = event => {
+  //   // When the form is submitted, prevent its default behavior, get book, update the book state
+  //   event.preventDefault();
 
-    API.getBooks(bookSearch)
-      .then(res => setBooks(res.data))
-      .catch(err => console.log(err));
-  };
+  //   API.getBooks(bookSearch)
+  //     .then(res => setBooks(res.data))
+  //     .catch(err => console.log(err));
+  // };
 
   return (
     <div>
-      <Nav />
-      <Jumbotron />
-      <Container>
+      {/* <Nav />
+      <Jumbotron /> */}
+      {/* <Container>
         <Row>
           <Col size="md-12">
             <form>
               <Container>
                 <Row>
                   <Col size="xs-9 sm-10">
-                    {/* <Input
-                      name="RecipeSearch"
-                      value={recipeSearch}
-                      onChange={handleInputChange}
-                      placeholder="Search For a Recipe"
-                    /> */}
                     <Input
                       name="BookSearch"
                       value={bookSearch}
@@ -76,23 +75,6 @@ function App() {
         </Row>
         <Row>
           <Col size="xs-12">
-            {/* {!recipes.length ? (
-              <h1 className="text-center">No Recipes to Display</h1>
-            ) : (
-              <RecipeList>
-                {recipes.map(recipe => {
-                  return (
-                    <RecipeListItem
-                      key={recipe.title}
-                      title={recipe.title}
-                      href={recipe.href}
-                      ingredients={recipe.ingredients}
-                      thumbnail={recipe.thumbnail}
-                    />
-                  );
-                })}
-              </RecipeList>
-            )} */}
             {!books.length ? (
               <h1 className="text-center">No Books to Display</h1>
             ) : (
@@ -104,7 +86,7 @@ function App() {
                       title={book.title}
                       authors={book.authors}
                       href={book.href}
-                      description={book.ingredients}
+                      description={book.description}
                       thumbnail={book.thumbnail}
                     />
                   );
@@ -113,7 +95,16 @@ function App() {
             )}
           </Col>
         </Row>
-      </Container>
+      </Container> */}
+
+      <Router>
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/saved" component={Saved} />
+              <Route path="/404" component={NoMatchPage} />
+              <Redirect to="/404" />
+            </Switch>
+      </Router>
     </div>
   );
 }
