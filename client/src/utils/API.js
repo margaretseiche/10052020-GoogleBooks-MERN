@@ -8,6 +8,12 @@ export default {
 
   getBooks: function(query) {
     return axios.get("/api/books", { params: { q: query } });
-  
+  },
+  searchTerms: function(query) {
+    return axios.get(
+      "https://www.googleapis.com/books/v1/volumes?q=" + query
+    );
   }
 };
+
+// https://www.googleapis.com/books/v1/volumes?q=quilting

@@ -4,7 +4,6 @@ import Nav from "../../components/Nav";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 import API from "../../utils/API";
-
 import { BookList, BookListItem } from "../../components/BookList";
 import { Container, Row, Col } from "../../components/Grid";
 import "./style.css";
@@ -13,6 +12,14 @@ function Home() {
 
   const [books, setBooks] = useState([]);
   const [bookSearch, setBookSearch] = useState("");
+
+  // const componentDidMount() {
+  //   API.getBooks(bookSearch)
+  //   .then(res => setBooks(res.data))
+  //   .catch(err => console.log(err));
+  // }
+
+  // componentDidMount();
 
   const handleInputChange = event => {
     // Destructure the name and value properties off of event.target
